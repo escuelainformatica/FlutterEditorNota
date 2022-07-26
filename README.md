@@ -1,16 +1,9 @@
 # untitled12
 
-A new Flutter project.
+![imagen1.png](imagen1.png)
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* StreamController: El streamcontroller se vincula al Streambuilder. Asi que cada actualizacion del streamcontroller va al streambuilder.
+* El StreamController se actualiza de dos maneras:
+  * Con la funcion Stream hace yield. Esta solo se carga cuando se carga la página
+  * Cuando se llama al metodo sink del StreamController.
+  * Sink puede llamarse con un valor fijo, o con un valor que sea devuelto por una funcion Stream.
