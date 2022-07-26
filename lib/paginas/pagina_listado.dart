@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:untitled12/botones/botones_nota.dart';
 import 'package:untitled12/filas/fila_nota.dart';
 import 'package:untitled12/paginas/pagina_insertar.dart';
 import 'package:untitled12/servicios/nota_rest.dart';
@@ -52,29 +53,7 @@ class PaginaListadoEstado extends State<PaginaListado> {
           return const Text("no hay datos");
         },
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (numboton) async {
-          if (numboton == 0) {
-            sc.sink.add([]);
-            actualizar();
-          }
-          if (numboton == 1) {
-            await Navigator.push(
-              context,
-              MaterialPageRoute(builder: (context) => PaginaInsertar()),
-            );
-            actualizar();
-          }
-        },
-        items: [
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.refresh), label: "refrescar"),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.add), label: "agregar"),
-          const BottomNavigationBarItem(
-              icon: Icon(Icons.abc_sharp), label: "boton3"),
-        ],
-      ),
+      bottomNavigationBar: BotonesNota(actualizar)
     );
   }
 }
