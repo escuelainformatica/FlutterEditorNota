@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:untitled12/botones/botones_nota.dart';
+import 'package:untitled12/configuracion.dart';
 import 'package:untitled12/filas/fila_nota.dart';
 import 'package:untitled12/paginas/pagina_insertar.dart';
 import 'package:untitled12/servicios/nota_rest.dart';
@@ -31,7 +32,7 @@ class PaginaListadoEstado extends State<PaginaListado> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("listado")),
+      appBar: AppBar(title: Text("listado ${Configuracion.user!.UserName}")),
       body: StreamBuilder<List<Nota>>(
         stream: sc.stream,
         builder: (context, snap) {

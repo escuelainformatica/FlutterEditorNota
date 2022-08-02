@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled12/paginas/pagina_listado.dart';
+import 'package:untitled12/paginas/pagina_login.dart';
 
 import 'paginas/my_home_page.dart';
 
@@ -27,7 +28,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: PaginaListado(),
+      home: PaginaLogin(),
     );
   }
 }
