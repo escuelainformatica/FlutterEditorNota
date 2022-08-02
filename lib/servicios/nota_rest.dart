@@ -28,7 +28,7 @@ class NotaRest {
 
     var mapa=nota.toJson();
 
-    //await new Future.delayed(const Duration(seconds : 3));
+    await new Future.delayed(const Duration(seconds : 3));
     var response = await http.post(url,body:convert.jsonEncode(mapa) );
     if (response.statusCode == 200) {
       var listado = convert.jsonDecode(response.body) as int;
@@ -44,7 +44,7 @@ class NotaRest {
 
     var mapa=nota.toJson();
 
-    //await new Future.delayed(const Duration(seconds : 3));
+    await new Future.delayed(const Duration(seconds : 5));
     var response = await http.post(url,body:convert.jsonEncode(mapa) );
     if (response.statusCode == 200) {
       var listado = convert.jsonDecode(response.body) as int;

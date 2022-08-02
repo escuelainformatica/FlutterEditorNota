@@ -6,23 +6,23 @@ import '../modelo/nota.dart';
 class PaginaInsertar extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-   return _PaginaInsertar();
+    return _PaginaInsertar();
   }
 }
+
 class _PaginaInsertar extends State<PaginaInsertar> {
 
-  TextEditingController c2=TextEditingController();
-  TextEditingController c3=TextEditingController();
+  bool botonHabilitado=true;
+  TextEditingController c2 = TextEditingController();
+  TextEditingController c3 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
         appBar: AppBar(title: Text("listado")),
         body: Form(
-          child:
-          Column(
+          child: Column(
             children: [
-
               TextFormField(
                 decoration: const InputDecoration(
                   icon: Icon(Icons.person),
@@ -39,15 +39,27 @@ class _PaginaInsertar extends State<PaginaInsertar> {
                 ),
                 controller: c3,
               ),
-              ElevatedButton(onPressed: () async {
-                Nota nota=Nota(idNote: 0,title:  c2.text,description:  c3.text);
-                await NotaRest.insertar(nota);
-                Navigator.pop(context);
-              }, child: Text("insertar"))
+              ElevatedButton(
+                style: ButtonStyle(
+                  backgroundColor: botonHabilitado?  MaterialStateProperty.all(Colors.blue) :  MaterialStateProperty.all(Colors.black12),
+                ),
+                  onPressed: () async {
+                    if(botonHabilitado) {
+                      setState(() {
+                        botonHabilitado = false;
+                      });
+                      Nota nota = Nota(idNote: 0, title: c2.text, description: c3.text);
+                      await NotaRest.insertar(nota);
+                      if(mounted) {
+                        // cuando la pagina esta montada
+                        Navigator.pop(context);
+                      }
+
+                    }
+                  },
+                  child:botonHabilitado ? Text("insertar") :  Image.asset("assets/loading-gif.gif",width: 32,height: 32,) )
             ],
           ),
-        )
-    );
+        ));
   }
-
 }
