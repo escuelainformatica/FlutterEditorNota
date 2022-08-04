@@ -9,8 +9,8 @@ class UsuarioRest {
   static Future<String> obtenerToken(User user) async {
     String token="";
 
-    // http://158.101.30.194/testcli/examples/oraclevm2/api/User/createauth
-    var url = Uri.http('158.101.30.194', '/testcli/examples/oraclevm2/api/User/createauth', {});
+    // http://158.101.30.194/testcli/examples/oraclevm2/api/UserRepo/createauth
+    var url = Uri.http('158.101.30.194', '/testcli/examples/oraclevm2/api/UserRepo/createauth', {});
 
     Map<String,dynamic> mapa=user.toJson();
     //await new Future.delayed(const Duration(seconds : 3));

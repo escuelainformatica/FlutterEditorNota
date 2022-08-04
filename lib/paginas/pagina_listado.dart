@@ -17,6 +17,7 @@ class PaginaListado extends StatefulWidget {
 }
 
 class PaginaListadoEstado extends State<PaginaListado> {
+  bool actualizando=false;
   StreamController<List<Nota>> sc = StreamController.broadcast();
 
   @override
@@ -25,8 +26,13 @@ class PaginaListadoEstado extends State<PaginaListado> {
     sc.addStream(NotaRest.listarStream());
   }
 
-  void actualizar() {
-    sc.sink.addStream(NotaRest.listarStream());
+  void actualizar() async {
+    if(actualizando) {
+      return;
+    }
+    actualizando=true;
+    await sc.sink.addStream(NotaRest.listarStream());
+    actualizando=false;
   }
 
   @override
